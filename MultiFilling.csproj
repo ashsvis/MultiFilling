@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B1ED125-A874-4A50-A797-4F7C1F673A1C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiFilling</RootNamespace>
+    <AssemblyName>MultiFilling</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChannelComboItem.cs" />
+    <Compile Include="ChannelNode.cs" />
+    <Compile Include="EventClient\EventClient.cs" />
+    <Compile Include="EventServer\AShEventService.cs" />
+    <Compile Include="EventServer\IAShEventService.cs" />
+    <Compile Include="EventServer\IClientCallback.cs" />
+    <Compile Include="EventServer\WcfEventService.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="FetchingStatus.cs" />
+    <Compile Include="FormConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfig.Designer.cs">
+      <DependentUpon>FormConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSplashClose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplashClose.Designer.cs">
+      <DependentUpon>FormSplashClose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTaskDataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaskDataEditor.Designer.cs">
+      <DependentUpon>FormTaskDataEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWorklogFilterEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWorklogFilterEditor.Designer.cs">
+      <DependentUpon>FormWorklogFilterEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFetchingParams.cs" />
+    <Compile Include="IFetchUpdate.cs" />
+    <Compile Include="ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logs.cs" />
+    <Compile Include="MemIniFile.cs" />
+    <Compile Include="RiserState.cs" />
+    <Compile Include="RiserTuning\FormRiserStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\FormRiserStatus.Designer.cs">
+      <DependentUpon>FormRiserStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\FormRiserTuning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\FormRiserTuning.Designer.cs">
+      <DependentUpon>FormRiserTuning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserStatusControl.designer.cs">
+      <DependentUpon>RiserStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningAdcControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningAdcControl.designer.cs">
+      <DependentUpon>RiserTuningAdcControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningAlarmLevelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningAlarmLevelControl.designer.cs">
+      <DependentUpon>RiserTuningAlarmLevelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningAnalogLevelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningAnalogLevelControl.designer.cs">
+      <DependentUpon>RiserTuningAnalogLevelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningLinkControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningLinkControl.designer.cs">
+      <DependentUpon>RiserTuningLinkControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningPlcControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserTuningPlcControl.designer.cs">
+      <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserTuning\RiserWorkDiagramControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiserTuning\RiserWorkDiagramControl.Designer.cs">
+      <DependentUpon>RiserWorkDiagramControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiserWaggonData.cs" />
+    <Compile Include="Service References\DataServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StationNode.cs" />
+    <Compile Include="SystemStatus\IUserControlMisc.cs" />
+    <Compile Include="SystemStatus\UcStationsStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcStationsStatus.designer.cs">
+      <DependentUpon>UcStationsStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trends.cs" />
+    <Compile Include="TypesList\FormWaggonTypeDataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypesList\FormWaggonTypeDataEditor.Designer.cs">
+      <DependentUpon>FormWaggonTypeDataEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypesList\FormWaggonTypesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypesList\FormWaggonTypesList.Designer.cs">
+      <DependentUpon>FormWaggonTypesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypesList\TypesListClass.cs" />
+    <Compile Include="SystemStatus\UcChannelsStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcChannelsStatus.Designer.cs">
+      <DependentUpon>UcChannelsStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcChangelogPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcChangelogPage.designer.cs">
+      <DependentUpon>UcChangelogPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcFillinglogPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcFillinglogPage.Designer.cs">
+      <DependentUpon>UcFillinglogPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcFillingPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcFillingPage.Designer.cs">
+      <DependentUpon>UcFillingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStatus\UcOneChannelStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcOneChannelStatus.Designer.cs">
+      <DependentUpon>UcOneChannelStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
+    <Compile Include="FetchArg.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPanel.Designer.cs">
+      <DependentUpon>FormPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiserAddress.cs" />
+    <Compile Include="RiserNode.cs" />
+    <Compile Include="SystemStatus\UcOneControllerStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcOneControllerStatus.Designer.cs">
+      <DependentUpon>UcOneControllerStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStatus\UcRiserOneState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcRiserOneState.designer.cs">
+      <DependentUpon>UcRiserOneState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStatus\UcControllersStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcControllersStatus.Designer.cs">
+      <DependentUpon>UcControllersStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStatus\UcTreeNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemStatus\UcTreeNavigator.Designer.cs">
+      <DependentUpon>UcTreeNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcSwitchlogPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcSwitchlogPage.designer.cs">
+      <DependentUpon>UcSwitchlogPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcTrendPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcTrendPage.Designer.cs">
+      <DependentUpon>UcTrendPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcWorklogPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcWorklogPage.Designer.cs">
+      <DependentUpon>UcWorklogPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCategory.cs" />
+    <Compile Include="UserList\FormPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserList\FormPassword.designer.cs">
+      <DependentUpon>FormPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserList\FormUserDataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserList\FormUserDataEditor.designer.cs">
+      <DependentUpon>FormUserDataEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserList\FormUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserList\FormUserList.designer.cs">
+      <DependentUpon>FormUserList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserList\UserListClass.cs" />
+    <Compile Include="WaggonsList\FormWaggonDataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaggonsList\FormWaggonDataEditor.Designer.cs">
+      <DependentUpon>FormWaggonDataEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaggonsList\FormWaggonsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaggonsList\FormWaggonsList.Designer.cs">
+      <DependentUpon>FormWaggonsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaggonsList\WaggonListClass.cs" />
+    <EmbeddedResource Include="FormConfig.resx">
+      <DependentUpon>FormConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashClose.resx">
+      <DependentUpon>FormSplashClose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaskDataEditor.resx">
+      <DependentUpon>FormTaskDataEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWorklogFilterEditor.resx">
+      <DependentUpon>FormWorklogFilterEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\FormRiserStatus.resx">
+      <DependentUpon>FormRiserStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\FormRiserTuning.resx">
+      <DependentUpon>FormRiserTuning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserStatusControl.resx">
+      <DependentUpon>RiserStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserTuningAdcControl.resx">
+      <DependentUpon>RiserTuningAdcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserTuningAlarmLevelControl.resx">
+      <DependentUpon>RiserTuningAlarmLevelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserTuningAnalogLevelControl.resx">
+      <DependentUpon>RiserTuningAnalogLevelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserTuningLinkControl.resx">
+      <DependentUpon>RiserTuningLinkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserTuningPlcControl.resx">
+      <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiserTuning\RiserWorkDiagramControl.resx">
+      <DependentUpon>RiserWorkDiagramControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemStatus\UcStationsStatus.resx">
+      <DependentUpon>UcStationsStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypesList\FormWaggonTypeDataEditor.resx">
+      <DependentUpon>FormWaggonTypeDataEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypesList\FormWaggonTypesList.resx">
+      <DependentUpon>FormWaggonTypesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemStatus\UcChannelsStatus.resx">
+      <DependentUpon>UcChannelsStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcChangelogPage.resx">
+      <DependentUpon>UcChangelogPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcFillinglogPage.resx">
+      <DependentUpon>UcFillinglogPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcFillingPage.resx">
+      <DependentUpon>UcFillingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemStatus\UcOneChannelStatus.resx">
+      <DependentUpon>UcOneChannelStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPanel.resx">
+      <DependentUpon>FormPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SystemStatus\UcOneControllerStatus.resx">
+      <DependentUpon>UcOneControllerStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemStatus\UcRiserOneState.resx">
+      <DependentUpon>UcRiserOneState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemStatus\UcControllersStatus.resx">
+      <DependentUpon>UcControllersStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemStatus\UcTreeNavigator.resx">
+      <DependentUpon>UcTreeNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcSwitchlogPage.resx">
+      <DependentUpon>UcSwitchlogPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcTrendPage.resx">
+      <DependentUpon>UcTrendPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcWorklogPage.resx">
+      <DependentUpon>UcWorklogPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserList\FormPassword.resx">
+      <DependentUpon>FormPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserList\FormUserDataEditor.resx">
+      <DependentUpon>FormUserDataEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserList\FormUserList.resx">
+      <DependentUpon>FormUserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaggonsList\FormWaggonDataEditor.resx">
+      <DependentUpon>FormWaggonDataEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaggonsList\FormWaggonsList.resx">
+      <DependentUpon>FormWaggonsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\DataServiceRef\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\service.wsdl" />
+    <None Include="Service References\DataServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flow_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flow_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ground_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ground_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\throat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waggon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WorkDiagram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DataServiceRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
