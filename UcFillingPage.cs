@@ -256,7 +256,7 @@ namespace MultiFilling
                             graphics.FillRectangle(brush, rect);
                         DrawBorder(graphics, rect,
                                    SystemColors.ControlLightLight, SystemColors.ControlDarkDark, 1);
-                        bool? hasNoGround;
+                        bool? hasGround;
                         bool alarmLevel, hasHandMode, workMode, smallValve, bigValve, ready;
                         lock (Data.RiserNodes)
                         {
@@ -264,7 +264,7 @@ namespace MultiFilling
                             linked = riserNode.Active && riserNode.BarometerValue < riserNode.MarginalLimit;
                             ready = riserNode.Ready;
                             alarmLevel = riserNode.HasAlarmLevel;
-                            hasNoGround = riserNode.HasNoGround;
+                            hasGround = !riserNode.HasNoGround;
                             hasHandMode = riserNode.HasHandMode;
                             setpoint = riserNode.Setpoint;
                             ntype = riserNode.Ntype;
@@ -310,15 +310,15 @@ namespace MultiFilling
                             else
                                 DrawLamp(graphics, new Rectangle(riserRect.Left + 47, riserRect.Top + 7, 14, 14), alarmLevel,
                                             Color.Red, Color.Lime, Color.Silver);
-                            if (hasNoGround != null) // нет запрета контроля заземления
+                            if (hasGround != null) // нет запрета контроля заземления
                             {
                                 rect = new Rectangle(new Point(riserRect.Left + 76, riserRect.Top + 65),
-                                                     (bool) hasNoGround
-                                                         ? Properties.Resources.ground_red.Size
-                                                         : Properties.Resources.ground_green.Size);
-                                graphics.DrawImage((bool) hasNoGround
-                                                       ? Properties.Resources.ground_red
-                                                       : Properties.Resources.ground_green, rect);
+                                                     (bool) hasGround
+                                                         ? Properties.Resources.ground_green.Size
+                                                         : Properties.Resources.ground_red.Size);
+                                graphics.DrawImage((bool) hasGround
+                                                       ? Properties.Resources.ground_green
+                                                       : Properties.Resources.ground_red, rect);
                             }
                             if (hasHandMode) //режим АВТОНОМНО
                             {

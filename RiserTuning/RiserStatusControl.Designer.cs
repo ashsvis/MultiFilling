@@ -395,7 +395,7 @@ namespace MultiFilling.RiserTuning
             this.stateStartButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
             this.stateStartButton.LampColorNone = System.Drawing.Color.Gray;
             this.stateStartButton.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateStartButton.LampColorOn = System.Drawing.Color.Red;
+            this.stateStartButton.LampColorOn = System.Drawing.Color.Lime;
             this.stateStartButton.Location = new System.Drawing.Point(8, 0);
             this.stateStartButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.stateStartButton.Name = "stateStartButton";
@@ -475,7 +475,7 @@ namespace MultiFilling.RiserTuning
             this.stateCheckGround.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
             this.stateCheckGround.LampColorNone = System.Drawing.Color.Gray;
             this.stateCheckGround.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateCheckGround.LampColorOn = System.Drawing.Color.Red;
+            this.stateCheckGround.LampColorOn = System.Drawing.Color.Lime;
             this.stateCheckGround.Location = new System.Drawing.Point(8, 115);
             this.stateCheckGround.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.stateCheckGround.Name = "stateCheckGround";
@@ -491,7 +491,7 @@ namespace MultiFilling.RiserTuning
             this.stateCheckLevel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
             this.stateCheckLevel.LampColorNone = System.Drawing.Color.Gray;
             this.stateCheckLevel.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateCheckLevel.LampColorOn = System.Drawing.Color.Red;
+            this.stateCheckLevel.LampColorOn = System.Drawing.Color.Lime;
             this.stateCheckLevel.Location = new System.Drawing.Point(8, 138);
             this.stateCheckLevel.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.stateCheckLevel.Name = "stateCheckLevel";
@@ -776,7 +776,7 @@ namespace MultiFilling.RiserTuning
             this.commandBlueLampOn.Size = new System.Drawing.Size(260, 23);
             this.commandBlueLampOn.State = null;
             this.commandBlueLampOn.TabIndex = 0;
-             // 
+            // 
             // stopKind0
             // 
             this.stopKind0.AutoSize = true;

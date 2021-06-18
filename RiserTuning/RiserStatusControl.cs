@@ -63,7 +63,7 @@ namespace MultiFilling.RiserTuning
             stateSmallValve.State = (hregs[1] & 0x2000) > 0 || (hregs[3] & 0x04) > 0;
             stateReady.State = (hregs[3] & 0x0008) > 0;
             stateWorkPosition.State = (hregs[1] & 0x4000) > 0 || (hregs[3] & 0x10) > 0;
-            stateCheckGround.State = !((hregs[3] & 0x20) > 0);
+            stateCheckGround.State = ((hregs[3] & 0x20) > 0);
             stateCheckLevel.State = (hregs[3] & 0x40) > 0;
             stateHandButton.State = (hregs[3] & 0x80) > 0;
             stateAnalogLevelMin.State = (hregs[3] & 0x0400) > 0;
